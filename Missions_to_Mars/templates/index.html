@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Information</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="resources/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+          <h1>Mission To Mars</h1>
+          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
+        </div>
+    </div>
+    <div>
+      <h2>Latest Mars News</h2>
+      <b>{{ mars['Nasa_Headlines'][0] }}</b>
+      <p>{{ mars['Nasa_Paragraphs'][0] }}</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8" id='Mars_Featured_Image'>
+          <h2>Featured Mars Image</h2>
+          <a target="_blank" href= "{{ mars['Mars_Featured_Pic'][0] }}">
+            <img id='feature-img' src="{{ mars['Mars_Featured_Pic'][0] }}" alt="Featured Image">
+          </a>
+        </div>
+
+        <div class="col-md-4" id='mars-info'>
+          <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h3 class="card-title">Current Weather On Mars</h3>
+              <p class="card-text">{{ mars['Mars_Weather'][0]}}</p>
+            </div>
+          </div>
+
+          <div>
+          <h3>Mars Facts</h3>
+          <table border='2'>
+            {% for key, value in mars_facts.items() %}
+               <tr>
+                    <th> {{ key }} </th>
+                    <td> {{ value }} </td>
+               </tr>
+            {% endfor %}
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+    <h2 id='hemi_header'>Mars Hemispheres</h2>
+      <div class="row">
+        <div class="col-md-12" id='Mars_Hemisphere'>
+          <a target="_blank" href= "{{ mars['Mars_Hemi_Links'][0] }}">
+            <img id='mars_hemi_pic' src="{{ mars['Mars_Hemi_Links'][0] }}" alt="Featured Image">
+          </a>
+          <h4>{{ mars['Mars_Hemi_Names'][0] }}</h4>
+        </div>
+      <div class="row">
+        <div class="col-md-12" id='Mars_Hemisphere'>
+          <a target="_blank" href= "{{ mars['Mars_Hemi_Links'][1] }}">
+            <img id='mars_hemi_pic' src="{{ mars['Mars_Hemi_Links'][1] }}" alt="Featured Image">
+          </a>
+          <h4>{{ mars['Mars_Hemi_Names'][1] }}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" id='Mars_Hemisphere'>
+          <a target="_blank" href= "{{ mars['Mars_Hemi_Links'][2] }}">
+            <img id='mars_hemi_pic' src="{{ mars['Mars_Hemi_Links'][2] }}" alt="Featured Image">
+          </a>
+          <h4>{{ mars['Mars_Hemi_Names'][2] }}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" id='Mars_Hemisphere'>
+          <a target="_blank" href= "{{ mars['Mars_Hemi_Links'][3] }}">
+            <img id='mars_hemi_pic' src="{{ mars['Mars_Hemi_Links'][3] }}" alt="Featured Image">
+          </a>
+          <h4>{{ mars['Mars_Hemi_Names'][3] }}</h4>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+</body>
